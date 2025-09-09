@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - Research Repository</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Research Papers Repository</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="publications.html" class="active">Publications</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="publications">
+            <h2>All Publications</h2>
+            
+            <div class="filter-section">
+                <h3>Filter by Category</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="machine-learning">Machine Learning</button>
+                    <button class="filter-btn" data-filter="energy">Energy</button>
+                    <button class="filter-btn" data-filter="privacy">Privacy</button>
+                </div>
+            </div>
+
+            <div class="publications-list">
+                <article class="publication-item" data-category="machine-learning">
+                    <h3><a href="papers/sample-paper-1.html">Machine Learning Applications in Healthcare</a></h3>
+                    <p class="paper-meta">
+                        <span class="date">2024</span> | 
+                        <span class="authors">Research Team</span> | 
+                        <span class="category">Machine Learning</span>
+                    </p>
+                    <p class="abstract">An exploration of machine learning techniques applied to healthcare diagnostics and treatment optimization. This paper reviews current ML models used in medical diagnosis, predictive analytics for patient outcomes, and automated treatment recommendation systems.</p>
+                    <div class="paper-actions">
+                        <a href="papers/sample-paper-1.html" class="btn">Read Full Paper</a>
+                    </div>
+                </article>
+
+                <article class="publication-item" data-category="energy">
+                    <h3><a href="papers/sample-paper-2.html">Sustainable Energy Systems: A Comprehensive Review</a></h3>
+                    <p class="paper-meta">
+                        <span class="date">2024</span> | 
+                        <span class="authors">Energy Research Group</span> | 
+                        <span class="category">Energy</span>
+                    </p>
+                    <p class="abstract">A systematic review of current sustainable energy technologies and their implementation challenges. The paper covers solar, wind, and hydroelectric power systems, along with emerging technologies like fusion and advanced battery storage.</p>
+                    <div class="paper-actions">
+                        <a href="papers/sample-paper-2.html" class="btn">Read Full Paper</a>
+                    </div>
+                </article>
+
+                <article class="publication-item" data-category="privacy">
+                    <h3><a href="papers/sample-paper-3.html">Data Privacy in the Digital Age</a></h3>
+                    <p class="paper-meta">
+                        <span class="date">2023</span> | 
+                        <span class="authors">Privacy Research Team</span> | 
+                        <span class="category">Privacy</span>
+                    </p>
+                    <p class="abstract">Analyzing current data privacy challenges and proposed solutions in modern digital systems. This research examines GDPR compliance, data anonymization techniques, and emerging privacy-preserving technologies.</p>
+                    <div class="paper-actions">
+                        <a href="papers/sample-paper-3.html" class="btn">Read Full Paper</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Research Repository. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const publications = document.querySelectorAll('.publication-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Update active button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Show/hide publications
+                    publications.forEach(pub => {
+                        if (filter === 'all' || pub.getAttribute('data-category') === filter) {
+                            pub.style.display = 'block';
+                        } else {
+                            pub.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
