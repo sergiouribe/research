@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaw Cysts ML Paper Summary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+            color: #333;
+            overflow: hidden;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .slide {
+            width: 90%;
+            max-width: 1200px;
+            height: 85vh;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+            padding: 50px;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .slide h1 {
+            font-size: 2.6em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 4px solid #9b59b6;
+            padding-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .slide h2 {
+            font-size: 1.8em;
+            color: #34495e;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            font-weight: 600;
+        }
+
+        .slide h3 {
+            font-size: 1.4em;
+            color: #9b59b6;
+            margin-bottom: 10px;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .slide p, .slide li {
+            font-size: 1.15em;
+            line-height: 1.5;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .citation-box {
+            background: #ecf0f1;
+            border-left: 4px solid #9b59b6;
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            font-size: 1.0em;
+            color: #34495e;
+        }
+
+        .question-box {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            font-weight: 600;
+            font-size: 1.3em;
+            text-align: center;
+        }
+
+        .answer-box {
+            background: #d1ecf1;
+            border: 2px solid #17a2b8;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+
+        .performance-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .performance-box {
+            background: #f8f9fa;
+            border: 1px solid #9b59b6;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .performance-box h4 {
+            color: #9b59b6;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .key-findings {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 1.0em;
+        }
+
+        .stats-table th {
+            background: #9b59b6;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .stats-table td {
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .stats-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 20px 0;
+        }
+
+        .methodology-box {
+            background: #e8f4fd;
+            border: 2px solid #2196f3;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+
+        .methodology-box h3 {
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+
+        .authors {
+            position: absolute;
+            bottom: 15px;
+            right: 25px;
+            font-size: 0.8em;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="slide">
+            <h1>Emulating Clinical Diagnostic Reasoning for Jaw Cysts with ML</h1>
+
+            <div class="citation-box">
+                <strong>Citation:</strong> Feher B, Kuchler U, Schwendicke F, Schneider L, Cejudo Grano de Oro JE, Xi T, Vinayahalingam S, Hsu TMH, Brinz J, Chaurasia A, et al. Emulating Clinical Diagnostic Reasoning for Jaw Cysts with Machine Learning. Diagnostics. 2022;12(8):1968.
+            </div>
+
+            <div class="question-box">
+                <strong>Research Question:</strong> Can machine learning emulate the human clinical diagnostic reasoning process for detecting and classifying jaw cysts using spatial relationships to anatomical structures?
+            </div>
+
+            <div class="answer-box">
+                <strong>Answer:</strong> Yes. A combined object detection and image segmentation approach successfully emulated clinical reasoning by first detecting cysts, then analyzing spatial relationships to anatomical structures, achieving performance comparable to human clinicians.
+            </div>
+
+            <h2>Key Performance Data</h2>
+
+            <table class="stats-table">
+                <tr>
+                    <th rowspan="2">Metric</th>
+                    <th colspan="2">ML Model Performance</th>
+                    <th colspan="2">Human Controls (n=10)</th>
+                </tr>
+                <tr>
+                    <th>Odontogenic</th>
+                    <th>Non-odontogenic</th>
+                    <th>Odontogenic</th>
+                    <th>Non-odontogenic</th>
+                </tr>
+                <tr>
+                    <td>Sensitivity</td>
+                    <td>0.84</td>
+                    <td>0.56</td>
+                    <td>0.70</td>
+                    <td>0.44</td>
+                </tr>
+                <tr>
+                    <td>Specificity</td>
+                    <td>0.59</td>
+                    <td>0.84</td>
+                    <td>0.62</td>
+                    <td>0.95</td>
+                </tr>
+                <tr>
+                    <td>F1-Score</td>
+                    <td>0.86</td>
+                    <td>0.50</td>
+                    <td>0.56</td>
+                    <td>0.45</td>
+                </tr>
+            </table>
+
+            <div class="two-column">
+                <div>
+                    <div class="methodology-box">
+                        <h3>Dataset Characteristics</h3>
+                        <ul>
+                            <li>1,239 panoramic radiographs total</li>
+                            <li>855 OPGs for training (all positives)</li>
+                            <li>384 OPGs for testing (38% prevalence)</li>
+                            <li>Multicenter: Vienna + Nijmegen</li>
+                            <li>Histopathological confirmation required</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="methodology-box">
+                        <h3>Novel Approach</h3>
+                        <ul>
+                            <li>RetinaNet object detection (cyst location)</li>
+                            <li>U-Net++ segmentation (anatomical structures)</li>
+                            <li>Random Forest classifier (overlap analysis)</li>
+                            <li>Spatial relationship analysis mimics clinical reasoning</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-findings">
+                <strong>Critical Findings:</strong><br>
+                • AI performed better than humans for odontogenic cyst detection (F1: 0.86 vs 0.56)<br>
+                • Human inter-rater agreement was poor (κ = 0.28)<br>
+                • Object detection achieved average precision of 0.42 and recall of 0.39<br>
+                • Classification performance remained stable despite imperfect cyst detection
+            </div>
+
+            <div class="methodology-box">
+                <strong>Clinical Significance:</strong> First study to deliberately replicate multi-step clinical reasoning process. Spatial relationships to anatomical structures (tooth proximity to radicular cysts) provided strong diagnostic information, validating clinical diagnostic approach.
+            </div>
+
+            <div class="authors">Feher et al., 2022</div>
+        </div>
+    </div>
+</body>
+</html>
